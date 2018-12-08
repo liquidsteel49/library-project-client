@@ -9,6 +9,12 @@
 const main = require('./main.js')
 
 $(() => {
+  $('#user-registry').on('submit', main.signUp)
+  $('#user-signin').submit(main.signIn)
+  $('#logout-button').click(main.signOut)
+  $('#user-change-password').submit(main.changePassword)
+
+  /*
   function httpFetch(url, body, verb) {
     let myHeaders = new Headers()
     myHeaders.set('Content-Type', 'application/json')
@@ -37,14 +43,14 @@ $(() => {
 
 
 
-// httpFetch(url, data, "POST")
-//   .then((result) => {
-//     console.log(result)
-//   })
-//   .catch((result) => {
-//     console.error(result)
-//   })
-
+httpFetch(url, data, "POST")
+  .then((result) => {
+    console.log(result)
+  })
+  .catch((result) => {
+    console.error(result)
+  })
+*/
 
 /*
   $.ajax({
@@ -69,5 +75,4 @@ $(() => {
 });
 */
 
-$('#user-registry').on('submit', main.signUp)
 })

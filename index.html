@@ -18,9 +18,29 @@
           <input type="text" name="credentials[email]" placeholder="Email">
           <input type="password" name="credentials[password]" placeholder="Password">
           <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-        <input type="submit" value="Sign up!">
+          <input type="submit" value="Sign up!">
           <legend>Let's get started!</legend>
         </fieldset>
+      </form>
 
+      <form id="user-signin">
+        <fieldset id="sign-in">
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="submit" value="Sign In!">
+          <legend>Sign In Now!</legend>
+        </fieldset>
+      </form>
+
+      <form id="user-change-password">
+        <fieldset id="change-password">
+          <input type="password" name="passwords[old]" placeholder="Old Password">
+          <input type="password" name="passwords[new]" placeholder="New Password">
+          <input type="submit" value="Change Password">
+          <legend>Change Password</legend>
+        </fieldset>
+      </form>
+
+      <button type="button" id="logout-button">Log Out</button>
     </body>
 </html>

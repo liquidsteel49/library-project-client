@@ -1,49 +1,63 @@
 const getFormFields = require('../../lib/get-form-fields.js')
+const api = require('./api.js')
+const store = require('./store.js')
 
 const signUp = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  onSignUpToApi(data)
-    .then(console.log('successful sign-up'))
-    .catch(console.log('failed sign-up'))
-}
-//move to api.js
-const onSignUpToApi = function (data) {
-  return $.ajax({
-    // change this later to use config.js file
-    url: 'http://localhost:4741/sign-up',
-    method: 'POST',
-    data
-  })
+  api.onSignUpToApi(data)
+    .then(function () {
+      console.log('successful sign-up')
+    })
+    .catch(function () {
+      console.log('failed sign-up')
+    })
 }
 
 const signIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  onSignInToApi(data)
-    .then(console.log('successful sign-in'))
-    .catch(console.log('failed sign-up'))
+  api.onSignInToApi(data)
+    .then(function(response) {
+      store.user = response.user
+      console.log(response)
+    })
+    .catch(function(){
+      console.log('failed-signin')
+    })
 }
 
-// move to api.js
-const onSignInToApi = function (data) {
-  return $.ajax({
-    // change this later to use config.js file
-    url: 'http://localhost:4741/sign-in',
-    method: 'POST',
-    data
-  })
+const changePassword = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.onChangePasswordApi(data)
+    .then(function() {
+      console.log('change password successful')
+    })
+    .catch(function() {
+      console.log('failed-changepassword')
+    })
 }
 
-// add the sign-out
-
-
-
+const signOut = function (event) {
+  event.preventDefault()
+  api.onSignOutToApi()
+    .then(function(){
+      store.user = null
+      console.log('sign out successful')
+    })
+    .catch(function(response){
+      console.log('sign out failed')
+      console.log(response)
+    })
+}
 // change password
 
 
 
 module.exports = {
-  signUp
-  signIn
+  signUp,
+  signIn,
+  signOut,
+  changePassword
 }
