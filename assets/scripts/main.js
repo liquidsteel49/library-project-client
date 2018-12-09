@@ -1,6 +1,7 @@
 const getFormFields = require('../../lib/get-form-fields.js')
 const api = require('./api.js')
 const store = require('./store.js')
+const ui = require('./ui.js')
 
 const signUp = function (event) {
   event.preventDefault()
@@ -18,11 +19,11 @@ const signIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.onSignInToApi(data)
-    .then(function(response) {
+    .then(function (response) {
       store.user = response.user
       console.log(response)
     })
-    .catch(function(){
+    .catch(function () {
       console.log('failed-signin')
     })
 }
@@ -31,10 +32,10 @@ const changePassword = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.onChangePasswordApi(data)
-    .then(function() {
+    .then(function () {
       console.log('change password successful')
     })
-    .catch(function() {
+    .catch(function () {
       console.log('failed-changepassword')
     })
 }
@@ -42,18 +43,15 @@ const changePassword = function (event) {
 const signOut = function (event) {
   event.preventDefault()
   api.onSignOutToApi()
-    .then(function(){
+    .then(function () {
       store.user = null
       console.log('sign out successful')
     })
-    .catch(function(response){
+    .catch(function (response) {
       console.log('sign out failed')
       console.log(response)
     })
 }
-// change password
-
-
 
 module.exports = {
   signUp,
