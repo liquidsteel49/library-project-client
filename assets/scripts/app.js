@@ -9,10 +9,10 @@
 const main = require('./main.js')
 
 $(() => {
-  $('#user-registry').on('submit', main.signUp)
-  $('#user-signin').submit(main.signIn)
-  $('#logout-button').click(main.signOut)
-  $('#user-change-password').submit(main.changePassword)
+  $('#user-registry').on('submit', main.onSignUp)
+  $('#user-signin').submit(main.onSignIn)
+  $('#logout-button').click(main.onSignOut)
+  $('#user-change-password').submit(main.onChangePassword)
 
   /*
   function httpFetch(url, body, verb) {
