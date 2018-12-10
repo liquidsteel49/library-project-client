@@ -13,7 +13,6 @@ const onSignUpToApi = function (data) {
 
 const onSignInToApi = function (data) {
   return $.ajax({
-    // change this later to use config.js file
     url: config.apiUrl + '/sign-in',
     method: 'POST',
     data
@@ -22,7 +21,6 @@ const onSignInToApi = function (data) {
 
 const onSignOutToApi = function () {
   return $.ajax({
-    // change this later to use config.js file
     url: config.apiUrl + '/sign-out',
     method: 'DELETE',
     headers: {
@@ -33,7 +31,6 @@ const onSignOutToApi = function () {
 
 const onChangePasswordApi = function (data) {
   return $.ajax({
-    // change this later to use config.js file
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
     headers: {

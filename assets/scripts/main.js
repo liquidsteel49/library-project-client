@@ -13,6 +13,13 @@ const onSignUp = function (event) {
     .catch(function () {
       console.log('failed sign-up')
     })
+
+  // need to make a way to send either signUpSuccess or signUpSuccess
+  // if (data) {
+  //   ui.signUpSuccess(data)
+  // } else if (error) {
+  //   ui.signUpFailure(error)
+  // }
 }
 
 const onSignIn = function (event) {
