@@ -3,7 +3,6 @@
 const config = require('./config.js')
 const store = require('./store.js')
 
-
 const onSignUpToApi = function (data) {
   return $.ajax({
     url: config.apiUrl + '/sign-up',
@@ -32,7 +31,7 @@ const onSignOutToApi = function () {
   })
 }
 
-const onChangePasswordApi = function(data){
+const onChangePasswordApi = function (data) {
   return $.ajax({
     // change this later to use config.js file
     url: config.apiUrl + '/change-password',
